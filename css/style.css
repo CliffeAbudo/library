@@ -1,0 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.book-card {
+  background-color: #e2e8f0;
+  height: 250px;
+  width: 250px;
+  border-radius: 25px;
+  padding: 20px;
+  margin: 10px;
+}
