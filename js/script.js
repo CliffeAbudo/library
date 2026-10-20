@@ -1,5 +1,8 @@
 const myLibrary = [];
 const libraryContainer = document.querySelector("#library-container");
+const newBookBtn = document.querySelector("#new-book-btn");
+const bookForm = document.querySelector("#book-form");
+
 function Book(title, author, pages, read) {
   this.id = crypto.randomUUID();
   this.title = title;
@@ -46,6 +49,21 @@ function displayBooks() {
     libraryContainer.appendChild(bookCard);
   });
 }
+
+newBookBtn.addEventListener("click", () => {
+  bookForm.hidden = false;
+});
+bookForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const title = bookForm.querySelector("#title").value;
+  const author = bookForm.querySelector("#author").value;
+  const pages = bookForm.querySelector("#pages").value;
+  const read = bookForm.querySelector("#read").checked;
+  addbooktolibrary(title, author, pages, read);
+  displayBooks();
+  bookForm.reset(); //clears form
+  bookForm.hidden = true;
+});
 
 addbooktolibrary("The Hobbit", "J.R.R. Tolkien", 295, false);
 addbooktolibrary("Dune", "Frank Herbert", 412, true);
