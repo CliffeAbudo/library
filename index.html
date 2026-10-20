@@ -3,31 +3,117 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>My Library</title>
     <link rel="stylesheet" href="/css/style.css" />
+    <script src="/js/script.js" defer></script>
   </head>
+
   <body>
-    <h1>My Library</h1>
-    <button id="new-book-btn">New Book</button>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="#">
+          <span class="brand-mark">▤</span>
+          <span>My Library</span>
+        </a>
 
-    <form id="book-form" hidden>
-      <!--form is initially hidden-->
+        <p class="header-note">A little space for the books you love.</p>
+      </div>
+    </header>
 
-      <label for="title">Title</label>
-      <input type="text" id="title" required />
+    <main class="page-content">
+      <section class="intro">
+        <div>
+          <p class="eyebrow">YOUR PERSONAL COLLECTION</p>
+          <h1>Every book has a place.</h1>
+          <p class="intro-copy">
+            Keep track of what you've read and what you'll read next.
+          </p>
+        </div>
 
-      <label for="author">Author</label>
-      <input type="text" id="author" required />
+        <button id="new-book-btn" class="button button-primary" type="button">
+          <span aria-hidden="true">＋</span> New book
+        </button>
+      </section>
 
-      <label for="pages">Pages</label>
-      <input type="number" id="pages" min="1" required />
+      <form id="book-form" class="book-form" hidden>
+        <div class="form-heading">
+          <div>
+            <p class="eyebrow">ADD TO YOUR SHELF</p>
+            <h2>Add a book</h2>
+          </div>
+          <p class="form-hint">Fill in the details below.</p>
+        </div>
 
-      <label for="read">Have you read it?</label>
-      <input type="checkbox" id="read" />
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="title">Book title</label>
+            <input
+              type="text"
+              id="title"
+              name="title"
+              placeholder="e.g. The Hobbit"
+              required
+            />
+          </div>
 
-      <button type="submit">Add Book</button>
-    </form>
-    <div id="library-container"></div>
-    <script src="/js/script.js"></script>
+          <div class="form-field">
+            <label for="author">Author</label>
+            <input
+              type="text"
+              id="author"
+              name="author"
+              placeholder="e.g. J.R.R. Tolkien"
+              required
+            />
+          </div>
+
+          <div class="form-field">
+            <label for="pages">Number of pages</label>
+            <input
+              type="number"
+              id="pages"
+              name="pages"
+              min="1"
+              placeholder="295"
+              required
+            />
+          </div>
+
+          <label class="checkbox-field" for="read">
+            <input type="checkbox" id="read" name="read" />
+            <span>I've read this book</span>
+          </label>
+        </div>
+
+        <div class="form-actions">
+          <button class="button button-primary" type="submit">Add book</button>
+
+          <button
+            class="button button-secondary"
+            id="cancel-form-btn"
+            type="button"
+          >
+            Cancel
+          </button>
+        </div>
+      </form>
+
+      <section class="library-section" aria-labelledby="shelf-heading">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">ON YOUR SHELF</p>
+            <h2 id="shelf-heading">Your collection</h2>
+          </div>
+
+          <span class="section-caption"> Your books, all in one place </span>
+        </div>
+
+        <div id="library-container" class="library-grid"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Made for readers, one page at a time.</p>
+    </footer>
   </body>
 </html>
