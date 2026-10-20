@@ -38,15 +38,25 @@ function displayBooks() {
     const author = document.createElement("p");
     const pages = document.createElement("p");
     const read = document.createElement("p");
+    const removeButton = document.createElement("button");
     title.textContent = book.title;
     author.textContent = book.author;
     pages.textContent = `${book.pages} pages`;
     read.textContent = book.read ? "Read" : "Not read yet"; //ternary operator to make it more user friendly
+    removeButton.textContent = "Remove";
     bookCard.appendChild(title);
     bookCard.appendChild(author);
     bookCard.appendChild(pages);
     bookCard.appendChild(read);
+    bookCard.appendChild(removeButton);
     libraryContainer.appendChild(bookCard);
+    removeButton.addEventListener("click", () => {
+      const index = myLibrary.findIndex((someBook) => {
+        return someBook.id === Book.id;
+      });
+      myLibrary.splice(index, 1);
+      displayBooks();
+    });
   });
 }
 
